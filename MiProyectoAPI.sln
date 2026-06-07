@@ -7,14 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiWebAPI", "MiWebAPI\MiWebA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiWebAPI.Tests", "MiWebAPI.Tests\MiWebAPI.Tests.csproj", "{A7A9390D-2366-44BA-BAB5-FF4D8AF8603B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{D7CC1489-4166-4EE0-A7CF-B4DBA2340CD5}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{BB6DA910-F4C5-4E9E-ABE2-DD55F7A5B825}"
-	ProjectSection(SolutionItems) = preProject
-		build-test.yml = build-test.yml
-		deploy-release.yml = deploy-release.yml
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +24,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{BB6DA910-F4C5-4E9E-ABE2-DD55F7A5B825} = {D7CC1489-4166-4EE0-A7CF-B4DBA2340CD5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3A4B4FFF-084F-4614-B693-84C15C94A0FB}
