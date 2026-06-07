@@ -1,0 +1,43 @@
+name: Deploy and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout del código
+      uses: actions/checkout@v4
+
+    - name: Configurar .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x' 
+
+    - name: Publicar la aplicación
+      run: dotnet publish -c Release -o ./publish
+
+    - name: Crear archivo ZIP (El Asset)
+      run: |
+        cd publish
+        zip -r ../app-release.zip .
+        cd ..
+
+    - name: Crear GitHub Release y subir Asset
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{ github.ref_name }}
+        name: Release ${{ github.ref_name }}
+        body: |
+          ### Entrega de Proyecto C# Web API
+          - Compilación automática multiplataforma.
+          - Asset empaquetado correctamente.
+        draft: false
+        prerelease: false
+        files: app-release.zip
