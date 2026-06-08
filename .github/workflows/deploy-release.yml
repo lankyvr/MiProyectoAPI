@@ -12,18 +12,18 @@ jobs:
       contents: write
 
     steps:
-    - name: Checkout del código
+    - name: Clonando mi repositorio
       uses: actions/checkout@v4
 
-    - name: Configurar .NET
+    - name: Configurando .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x' 
 
-    - name: Publicar la aplicación
+    - name: Publicando la api
       run: dotnet publish -c Release -o ./publish
 
-    - name: Crear archivo ZIP (El Asset)
+    - name: Creando archivo ZIP (El Asset)
       run: |
         cd publish
         zip -r ../app-release.zip .
